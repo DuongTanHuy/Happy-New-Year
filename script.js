@@ -392,10 +392,13 @@ function initializeClock(id, endtime) {
             },
           });
         })();
-      }, 1000);
+      }, 11000);
+    }
+
+    setTimeout(() => {
       var clock = document.getElementById("clock");
       clock.classList.add("end");
-    }
+    }, 3000);
 
     if (t.total <= 0) {
       document.title = "Happy New Year";
@@ -406,12 +409,14 @@ function initializeClock(id, endtime) {
       minutesSpan.innerHTML = 0;
       secondsSpan.innerHTML = 0;
 
-      var text = document.getElementById("new-year");
-      text.classList.remove("hidden");
-      var sound = document.getElementById("happyNewYearSound");
-      if (sound.paused) {
-        sound.play();
-      }
+      setTimeout(() => {
+        var text = document.getElementById("new-year");
+        text.classList.remove("hidden");
+        var sound = document.getElementById("happyNewYearSound");
+        if (sound.paused) {
+          sound.play();
+        }
+      }, 20000);
     }
   }
 
