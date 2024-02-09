@@ -181,14 +181,21 @@ h1 {
 }
 
 #clockdiv > div {
-  padding: 10px;
-  border-radius: 3px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 6px;
+  padding-right: 6px;
   background: #3a3b3a;
   display: inline-block;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
 #clockdiv div > span {
-  padding: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 6px;
+  padding-right: 6px;
   border-radius: 3px;
   background: #1e1f1d;
   display: inline-block;

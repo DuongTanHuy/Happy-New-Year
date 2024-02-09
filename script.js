@@ -362,7 +362,7 @@ function getTimeRemaining(endtime) {
 
 function initializeClock(id, endtime) {
   var clock = document.getElementById(id);
-  var daysSpan = clock.querySelector(".days");
+  // var daysSpan = clock.querySelector(".days");
   var hoursSpan = clock.querySelector(".hours");
   var minutesSpan = clock.querySelector(".minutes");
   var secondsSpan = clock.querySelector(".seconds");
@@ -370,17 +370,13 @@ function initializeClock(id, endtime) {
   function updateClock() {
     var t = getTimeRemaining(endtime);
 
-    daysSpan.innerHTML = t.days;
+    // daysSpan.innerHTML = t.days;
     hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
     minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
     secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
 
-    if (t.total <= 0) {
-      document.title = "Happy New Year";
-      clearInterval(timeinterval);
-      var clock = document.getElementById("clock");
-      clock.classList.add("end");
-      setTimeout(() => {
+    if (t.total <= 16000) {
+      const timer = setTimeout(() => {
         (() => {
           store.setState({
             config: {
@@ -392,19 +388,30 @@ function initializeClock(id, endtime) {
               skyLighting: SKY_LIGHT_NORMAL + "",
               hideControls: IS_HEADER,
               longExposure: false,
-              scaleFactor: 1.2,
+              scaleFactor: getDefaultScaleFactor(),
             },
           });
         })();
       }, 1000);
-      setTimeout(() => {
-        var text = document.getElementById("new-year");
-        text.classList.remove("hidden");
-        var sound = document.getElementById("happyNewYearSound");
-        if (sound.paused) {
-          sound.play();
-        }
-      }, 6000);
+      var clock = document.getElementById("clock");
+      clock.classList.add("end");
+    }
+
+    if (t.total <= 0) {
+      document.title = "Happy New Year";
+      clearInterval(timeinterval);
+
+      // daysSpan.innerHTML = 0;
+      hoursSpan.innerHTML = 0;
+      minutesSpan.innerHTML = 0;
+      secondsSpan.innerHTML = 0;
+
+      var text = document.getElementById("new-year");
+      text.classList.remove("hidden");
+      var sound = document.getElementById("happyNewYearSound");
+      if (sound.paused) {
+        sound.play();
+      }
     }
   }
 
@@ -412,7 +419,7 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 // count down timer:
-var deadline = new Date().getFullYear() + "/2/9";
+var deadline = new Date().getFullYear() + "/2/10";
 initializeClock("clockdiv", deadline);
 
 // ----------------------------------------------------------------

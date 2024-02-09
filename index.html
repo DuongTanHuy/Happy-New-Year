@@ -13,12 +13,8 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#000000" />
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/firework-burst-icon-v2.png"
-    />
-    <link
+    <link rel="shortcut icon" type="image/png" href="./icon-dragon.png" />
+    <!-- <link
       rel="icon"
       type="image/png"
       href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/firework-burst-icon-v2.png"
@@ -26,7 +22,7 @@
     <link
       rel="apple-touch-icon-precomposed"
       href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/firework-burst-icon-v2.png"
-    />
+    /> -->
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="msapplication-TileImage"
@@ -43,21 +39,21 @@
     <div id="clock">
       <h1>Đếm ngược</h1>
       <div id="clockdiv">
-        <div>
+        <!-- <div>
           <span class="days"></span>
           <div class="smalltext">Days</div>
-        </div>
+        </div> -->
         <div>
           <span class="hours"></span>
-          <div class="smalltext">Hours</div>
+          <div class="smalltext">Giờ</div>
         </div>
         <div>
           <span class="minutes"></span>
-          <div class="smalltext">Minutes</div>
+          <div class="smalltext">Phút</div>
         </div>
         <div>
           <span class="seconds"></span>
-          <div class="smalltext">Seconds</div>
+          <div class="smalltext">Giây</div>
         </div>
         <br />
       </div>
@@ -316,6 +312,7 @@
           sound.currentTime = 0;
         }
       });
+      document.title = "Waiting...";
     </script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/Stage%400.1.4.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/fscreen%401.0.1.js"></script>
